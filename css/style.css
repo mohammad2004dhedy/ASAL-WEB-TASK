@@ -12,8 +12,9 @@
 html {
   font-size: 16px;
 }
-body{
-    overflow: hidden;
+body {
+  overflow-x: hidden;
+  font-family: sans-serif;
 }
 ul {
   list-style: none;
@@ -23,7 +24,7 @@ a {
 }
 .container {
   width: 100%;
-  padding: 15px;
+  padding: 15px 25px;
   margin: auto;
 }
 @media (min-width: 992px) {
@@ -43,13 +44,14 @@ header {
   position: fixed;
   background: white;
   box-shadow: 0 3px 5px var(--primary-color);
-  position: relative;
+  z-index: 10;
 }
 header .container {
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 header .container img {
   width: 4rem;
@@ -123,19 +125,19 @@ header .container .headerActions .BurgerIcon.active span:last-child {
   header .container nav {
     position: absolute;
     top: 100%;
-    right:-110%;
+    right: -160%;
     background: var(--primary-color);
     height: calc(100vh - 69.54px);
     padding: 20px 0;
     transition: 400ms;
   }
-  header .container.active nav{
-  right: 0;
+  header .container.active nav {
+    right: 0;
   }
   header .container nav ul {
     flex-direction: column;
     width: 19rem;
-    gap:0.5rem;
+    gap: 0.5rem;
   }
   header .container nav ul li {
     width: 100%;
@@ -166,9 +168,153 @@ header .container .headerActions .BurgerIcon.active span:last-child {
   header .container nav ul li a:hover {
     color: var(--primary-color);
   }
-  header .container nav ul li a.active::before, header .container nav ul li a:hover::before {
+  header .container nav ul li a.active::before,
+  header .container nav ul li a:hover::before {
     width: 100%;
     border-radius: 0;
   }
 }
 /* ----------------- header end ------------------ */
+/* ------------------------ main section start  -------------------------------------*/
+main {
+  min-height: 100vh;
+  background: url("../image/bg.png");
+  background-position: center;
+  background-size: cover;
+}
+main .container {
+  padding-top: 12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .container .info {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+main .container .info h2 {
+  font-size: 2.7rem;
+  text-transform: uppercase;
+}
+main .container .info h2 span {
+  color: var(--primary-color);
+}
+main .container .info p {
+  line-height: 1.2;
+  color: var(--paragraphs-color);
+}
+main .container .info button {
+  padding: 0.7rem 1.8rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  width: fit-content;
+  text-transform: capitalize;
+}
+main .container .image {
+  flex-basis:50%;
+  position: relative;
+  top: -2.5rem;
+}
+main .container .image img {
+  width:100%;
+}
+@media (max-width: 991px) {
+  main .container {
+    justify-content: center;
+    flex-direction: column;
+    gap:70px;
+  }
+  main .container .info {
+    text-align: center;
+    flex-basis: 100%;
+    align-items: center;
+  }
+  main .container .image {
+    flex-basis: 100%;
+    top: 0;
+  }
+}
+@media (max-width: 475px) {
+  main .container .info h2 {
+    font-size: 2.1rem;
+  }
+}
+/* ------------------------ main section end ------------------------------------- */
+/* ------------ features start ----------------- */
+.features .container{
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,250px));
+  justify-content: space-around;
+  gap: 15px;
+}
+.features .container .feature{
+  padding: 10px;
+  text-align: center;
+  box-shadow:0 0 6px var(--primary-color);
+}
+.features .container .feature i{
+  color: var(--primary-color);
+  font-size:30px;
+}
+.features .container .feature h4{
+  text-transform: capitalize;
+  margin:10px 0;
+}
+.features .container .feature p{
+  color: var(--paragraphs-color);
+}
+/* ------------ features end ----------------- */
+/* ------------- about start ----------------- */
+.about{
+  margin:70px 0;
+  overflow: hidden;
+}
+.about .container{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  position: relative;
+}
+.about .container .image{
+  width:32rem;
+}
+.about .container .image img{
+  width: 100%;
+}
+.about .container .about-info{
+  width:40%;
+  position: relative;
+}
+.about .container .about-info h2{
+  text-transform: capitalize;
+}
+.about .container .about-info p{
+  color:var(--paragraphs-color);
+  margin:20px 0;
+}
+.about .container .about-info button{
+  background: var(--primary-color);
+  color: white;
+  padding:7px 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width:991px) {
+  .about .container .image{
+   position: absolute;
+   bottom:-50%;
+   right: -30%;
+   opacity: 0.4;
+  }
+  .about .container .about-info{
+    flex-basis:80%;
+    text-align: left;
+  }
+}
+/* ------------- about end ----------------- */
