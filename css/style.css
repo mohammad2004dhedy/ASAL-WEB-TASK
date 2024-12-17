@@ -16,6 +16,16 @@ body {
   overflow-x: hidden;
   font-family: sans-serif;
 }
+body::-webkit-scrollbar {
+  width: 0.35rem;
+}
+body ::-webkit-scrollbar-track {
+  background: #d1d1d1;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius:0.1rem;
+}
 ul {
   list-style: none;
 }
@@ -36,6 +46,30 @@ a {
   .container {
     width: 85%;
   }
+}
+.section-title {
+  font-size: 2.6rem;
+  text-transform: capitalize;
+  margin: 3.1rem 0 4rem;
+  position: relative;
+  text-align: center;
+}
+.section-title::before {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6.5rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+.books-LeranMoreBtn {
+  border: solid 2px var(--primary-color);
+  padding: 8px 16px;
+  margin: auto;
+  background: white;
 }
 /* -------------- global styles end-------------- */
 /* ----------------- header start ------------------ */
@@ -216,18 +250,18 @@ main .container .info button {
   text-transform: capitalize;
 }
 main .container .image {
-  flex-basis:50%;
+  flex-basis: 50%;
   position: relative;
   top: -2.5rem;
 }
 main .container .image img {
-  width:100%;
+  width: 100%;
 }
 @media (max-width: 991px) {
   main .container {
     justify-content: center;
     flex-direction: column;
-    gap:70px;
+    gap: 70px;
   }
   main .container .info {
     text-align: center;
@@ -246,75 +280,123 @@ main .container .image img {
 }
 /* ------------------------ main section end ------------------------------------- */
 /* ------------ features start ----------------- */
-.features .container{
+.features .container {
   display: grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,250px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   justify-content: space-around;
   gap: 15px;
 }
-.features .container .feature{
+.features .container .feature {
   padding: 10px;
   text-align: center;
-  box-shadow:0 0 6px var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color);
 }
-.features .container .feature i{
+.features .container .feature i {
   color: var(--primary-color);
-  font-size:30px;
+  font-size: 30px;
 }
-.features .container .feature h4{
+.features .container .feature h4 {
   text-transform: capitalize;
-  margin:10px 0;
+  margin: 10px 0;
 }
-.features .container .feature p{
+.features .container .feature p {
   color: var(--paragraphs-color);
 }
 /* ------------ features end ----------------- */
 /* ------------- about start ----------------- */
-.about{
-  margin:70px 0;
+.about {
+  margin: 70px 0;
   overflow: hidden;
 }
-.about .container{
+.about .container {
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
 }
-.about .container .image{
-  width:32rem;
+.about .container .image {
+  width: 32rem;
 }
-.about .container .image img{
+.about .container .image img {
   width: 100%;
 }
-.about .container .about-info{
-  width:40%;
+.about .container .about-info {
+  width: 40%;
   position: relative;
 }
-.about .container .about-info h2{
+.about .container .about-info h2 {
   text-transform: capitalize;
 }
-.about .container .about-info p{
-  color:var(--paragraphs-color);
-  margin:20px 0;
+.about .container .about-info p {
+  color: var(--paragraphs-color);
+  margin: 20px 0;
 }
-.about .container .about-info button{
+.about .container .about-info button {
   background: var(--primary-color);
   color: white;
-  padding:7px 20px;
+  padding: 7px 20px;
   outline: none;
   border: none;
   cursor: pointer;
 }
-@media (max-width:991px) {
-  .about .container .image{
-   position: absolute;
-   bottom:-50%;
-   right: -30%;
-   opacity: 0.4;
+@media (max-width: 991px) {
+  .about .container .image {
+    position: absolute;
+    bottom: -50%;
+    right: -30%;
+    opacity: 0.4;
   }
-  .about .container .about-info{
-    flex-basis:80%;
+  .about .container .about-info {
+    flex-basis: 80%;
     text-align: left;
   }
 }
 /* ------------- about end ----------------- */
+/* --------------------------- featured books start -------------------- */
+.featuredBooks .container {
+  width: 100vw;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.featuredBooks .container .book {
+  padding: 0.3rem 0.9rem;
+  width: 15rem;
+  border: 1px solid #444;
+  text-align: center;
+  flex-shrink: 0;
+}
+.featuredBooks .container .book img {
+  width: 80%;
+}
+.featuredBooks .container .book .bookTitle {
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+.featuredBooks .container .book .author {
+  color: gray;
+  margin-bottom: 10px;
+}
+.featuredBooks .container .book .Genre {
+  color: var(--primary-color);
+}
+.featuredBooks .container .book .price {
+  margin: 10px 0;
+}
+.featuredBooks .container .book .price .prevPrice {
+  text-decoration: line-through;
+}
+/* change the scroll bar for the featuredBooks section */
+.featuredBooks .container::-webkit-scrollbar {
+  height: 0.4rem;
+}
+.featuredBooks .container::-webkit-scrollbar-track {
+  background: #d1d1d1;
+}
+.featuredBooks .container::-webkit-scrollbar-thumb {
+  background-color: #237e81;
+  border-radius: 0.25rem;
+}
+/* --------------------------- featured books end -------------------- */
