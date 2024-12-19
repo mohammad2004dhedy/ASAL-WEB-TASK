@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 :root {
   --black-color: #000;
@@ -70,6 +71,58 @@ a {
   padding: 8px 16px;
   margin: auto;
   background: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.books-LeranMoreBtn::before{
+  content: "Learn More";
+  position: absolute;
+  top: 0;
+  left:-101%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:300ms;
+}
+.books-LeranMoreBtn:hover::before{
+  left: 0;
+}
+#scrollLine{
+  position: fixed;
+  top:0;
+  left: 0;
+  width:0;
+  height:5px;
+  background: var(--primary-color);
+  border-radius:1rem;
+  z-index: 11;
+}
+#UpBtn{
+  position: fixed;
+  bottom: 1rem;
+  right: -5rem;
+  opacity: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size:2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms;
+}
+#UpBtn.active{
+  right: 1rem;
+  opacity: 1;
 }
 /* -------------- global styles end-------------- */
 /* ----------------- header start ------------------ */
@@ -332,14 +385,7 @@ main .container .image img {
   color: var(--paragraphs-color);
   margin: 20px 0;
 }
-.about .container .about-info button {
-  background: var(--primary-color);
-  color: white;
-  padding: 7px 20px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+
 @media (max-width: 991px) {
   .about .container .image {
     position: absolute;
@@ -366,6 +412,10 @@ main .container .image img {
   border: 1px solid #444;
   text-align: center;
   flex-shrink: 0;
+  transition: 400ms;
+}
+.featuredBooks .container .book:hover {
+  box-shadow: 0 0 6px var(--primary-color);
 }
 .featuredBooks .container .book img {
   width: 80%;
@@ -411,10 +461,26 @@ main .container .image img {
   padding: 0.3rem 0.9rem;
   border: 1px solid #444;
   text-align: center;
+  transition: 400ms;
 }
-.New-Arrivals .container .book img {
+.New-Arrivals .container .book .image {
   width: 85%;
+  margin: auto;
+  height: fit-content;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.819);
+  transition: 400ms;
+  overflow: hidden;
+}
+.New-Arrivals .container .book .image img{
+  transform: scale(1.05);
+  width: 100%;
+  transition: 400ms;
+}
+.New-Arrivals .container .book:hover{
+  box-shadow: 0 0 6px var(--primary-color);
+}
+.New-Arrivals .container .book:hover img{
+  transform: scale(1.18);
 }
 .New-Arrivals .container .book .bookTitle {
   text-transform: capitalize;
@@ -433,45 +499,199 @@ main .container .image img {
 }
 /* --------------------------- new arrival end -----------------------  */
 /* ----------------- reviews section start ---------------------- */
-.reviews .container{
+.reviews .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 20rem));
   justify-content: center;
-  gap:1.2rem;
+  gap: 1.2rem;
 }
-.reviews .container .review{
+.reviews .container .review {
   position: relative;
-  padding:1rem;
+  padding: 1rem;
   box-shadow: 0 0 6px var(--primary-color);
   text-align: left;
 }
-.reviews .container .review .quote{
-position: absolute;
-top: 0;
-right: 0.8rem;
-opacity:0.1;
-font-size:6rem;
+.reviews .container .review .quote {
+  position: absolute;
+  top: 0;
+  right: 0.8rem;
+  opacity: 0.1;
+  font-size: 6rem;
 }
-.reviews .container .review .reviewer-image{
+.reviews .container .review .reviewer-image {
   border-radius: 50%;
   width: 70px;
 }
-.reviews .container .review .reviewer-name{
+.reviews .container .review .reviewer-name {
   text-transform: capitalize;
-  margin:0.8rem 0;
+  margin: 0.8rem 0;
 }
-.reviews .container .review .review-text{
+.reviews .container .review .review-text {
   color: var(--paragraphs-color);
 }
-.reviews .container .review .stars{
-  margin:0.6rem 0 1rem;
+.reviews .container .review .stars {
+  margin: 0.6rem 0 1rem;
 }
 /* ----------------- reviews section end ---------------------- */
 /* ---------------- banner start ---------------- */
-.banner{
-min-height:50vh;
-background:url(../image/banner.jpg);
-background-size: cover;
-background-position: center;
+.banner {
+  min-height: 50vh;
+  background: url(../image/banner.jpg);
+  background-size: cover;
+  background-position: center;
 }
 /* ---------------- banner end ---------------- */
+/* --------------------- our blog start -----------------------*/
+.Blogs .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 22rem));
+  gap: 3rem;
+  justify-content: center;
+}
+.Blogs .container .blog {
+  box-shadow: 0 0 8px #333333cd;
+  display: flex;
+  flex-direction: column;
+}
+
+.Blogs .container .blog .image img {
+  width: 100%;
+  object-fit: cover;
+  height: 12rem;
+}
+.Blogs .container .blog .content {
+  padding: 0.9rem;
+}
+.Blogs .container .blog .content .title {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  margin-bottom: 0.8rem;
+}
+.Blogs .container .blog .content .description {
+  color: var(--paragraphs-color);
+  margin-bottom: 0.3rem;
+}
+.Blogs .container .blog .content .actions {
+  display: flex;
+  justify-content: space-between;
+}
+.Blogs .container .blog .content .actions i {
+  color: var(--primary-color);
+}
+/* --------------------- our blog end -------------------------*/
+/* ------------------- footer start ----------------------- */
+
+footer {
+  background: #d8d8d8;
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+footer .container .content {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 2rem;
+}
+footer .container .content .column:not(:first-of-type) .columnHead {
+  margin-bottom: 1.4rem;
+}
+footer .container .content .column:first-of-type img {
+  width: 4.5rem;
+  margin-bottom: 1rem;
+}
+footer .container .content .column:first-of-type p {
+  color: var(--paragraphs-color);
+}
+footer .container .content .column ul li {
+  margin: 0.8rem 0;
+}
+footer .container .content .column ul:not(.contact) li a {
+  color: var(--paragraphs-color);
+  transition: 400ms;
+}
+footer .container .content .column ul:not(.contact) li a:hover {
+  color: var(--primary-color);
+}
+footer .container .content .column .contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+}
+footer .container .content .column .contact li span {
+  color: var(--paragraphs-color);
+}
+footer .container .content .column .social {
+  display: flex;
+  gap: 0.8rem;
+}
+footer .container .content .column .social a {
+  display: inline-block;
+  color: black;
+  transition: 400ms;
+  position: relative;
+  top: 0;
+}
+footer .container .content .column .social a:hover {
+  color: var(--primary-color);
+  top: -0.25rem;
+}
+footer .container .content .column form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+footer .container .content .column form input {
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 1rem;
+  background: #b8b7b7;
+  max-width: 13rem;
+}
+footer .container .content .column form button {
+  width: fit-content;
+  background: var(--primary-color);
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  color: white;
+  cursor: pointer;
+}
+footer .container .copyRight {
+  color: var(--paragraphs-color);
+}
+footer .container .copyRight span {
+  color: var(--primary-color);
+}
+
+/* make the footer respnosive */
+@media (max-width: 992px) {
+  footer .container .content {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+@media (max-width: 767px) {
+  footer .container .content {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+  footer .container .content .column .social {
+    justify-content: center;
+  }
+  footer .container .content .column .contact li {
+    justify-content: center;
+  }
+  footer .container .content .column form {
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  footer .container .content {
+    grid-template-columns: 1fr;
+  }
+}
+/* ------------------- footer end  ----------------------- */
