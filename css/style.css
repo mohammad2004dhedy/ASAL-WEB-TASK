@@ -35,7 +35,7 @@ a {
 }
 .container {
   width: 100%;
-  padding: 15px 25px;
+  padding: 1rem 1.5rem;
   margin: auto;
 }
 @media (min-width: 992px) {
@@ -69,7 +69,7 @@ a {
 /* this button will be used in about , arrivals and featuredBooks sections */
 .books-LeranMoreBtn {
   border: solid 2px var(--primary-color);
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   margin: auto;
   background: white;
   cursor: pointer;
@@ -114,8 +114,8 @@ a {
   border-radius: 50%;
   cursor: pointer;
   font-size: 2rem;
-  width: 50px;
-  height: 50px;
+  width: 3.1rem;
+  height: 3.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,7 +233,7 @@ header .container .headerActions .BurgerIcon.active span:last-child {
   header .container nav ul li a {
     color: white;
     display: block;
-    padding: 20px;
+    padding: 1.25rem;
     text-align: center;
     position: relative;
   }
@@ -249,8 +249,8 @@ header .container .headerActions .BurgerIcon.active span:last-child {
     height: 100%;
     background: white;
     transition: all 400ms, border-radius 400ms 250ms;
-    border-top-right-radius: 70px;
-    border-bottom-right-radius: 70px;
+    border-top-right-radius: 4.3rem;
+    border-bottom-right-radius: 4.3rem;
   }
   header .container nav ul li a.active,
   header .container nav ul li a:hover {
@@ -315,7 +315,7 @@ main .container .image img {
   main .container {
     justify-content: center;
     flex-direction: column;
-    gap: 70px;
+    gap: 4.3rem;
   }
   main .container .info {
     text-align: center;
@@ -338,17 +338,17 @@ main .container .image img {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   justify-content: space-around;
-  gap: 15px;
+  gap: 1rem;
   align-items: center;
 }
 .features .container .feature {
-  padding: 10px;
+  padding: 0.6rem;
   text-align: center;
   box-shadow: 0 0 6px var(--primary-color);
 }
 .features .container .feature i {
   color: var(--primary-color);
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 .features .container .feature h4 {
   text-transform: capitalize;
@@ -360,7 +360,7 @@ main .container .image img {
 /* ------------ features end ----------------- */
 /* ------------- about start ----------------- */
 .about {
-  margin: 70px 0;
+  margin: 4.3rem 0;
   overflow: hidden;
 }
 .about .container {
@@ -384,7 +384,7 @@ main .container .image img {
 }
 .about .container .about-info p {
   color: var(--paragraphs-color);
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 @media (max-width: 991px) {
@@ -423,17 +423,17 @@ main .container .image img {
 }
 .featuredBooks .container .book .bookTitle {
   text-transform: capitalize;
-  margin: 10px 0;
+  margin: 0.6rem 0;
 }
 .featuredBooks .container .book .author {
   color: gray;
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
 }
 .featuredBooks .container .book .Genre {
   color: var(--primary-color);
 }
 .featuredBooks .container .book .price {
-  margin: 10px 0;
+  margin: 0.6rem 0;
 }
 .featuredBooks .container .book .price .prevPrice {
   text-decoration: line-through;
@@ -485,14 +485,14 @@ main .container .image img {
 }
 .New-Arrivals .container .book .bookTitle {
   text-transform: capitalize;
-  margin: 10px 0;
+  margin: 0.6rem 0;
 }
 /* the stars here will be used for both new arrivals and reviews sections */
 .stars {
   width: fit-content;
   display: flex;
   gap: 2px;
-  margin: 10px auto;
+  margin: 0.6rem auto;
 }
 .star {
   font-size: 0.9rem;
@@ -521,7 +521,7 @@ main .container .image img {
 }
 .reviews .container .review .reviewer-image {
   border-radius: 50%;
-  width: 70px;
+  width: 4.3rem;
 }
 .reviews .container .review .reviewer-name {
   text-transform: capitalize;
@@ -540,25 +540,27 @@ main .container .image img {
   background-size: cover;
   background-position: center;
 }
-.banner .container{
+.banner .container {
   min-height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
+}
+.banner .container .content{
+  width: 22rem;
 }
 .banner .container h2 {
   font-size: 3rem;
 }
-.banner .container p{
-  margin:0 0 1.2rem;
-  width:40%;
+.banner .container p {
+  margin: 0 0 1.2rem;
 }
-.banner .container a{
-  color:white;
-  padding:0.3rem 0.6rem;
-  background:var(--primary-color);
-  font-size:0.8rem;
+.banner .container a {
+  color: white;
+  padding: 0.4rem 0.8rem;
+  background: var(--primary-color);
+  font-size: 0.8rem;
 }
 /* ---------------- banner end ---------------- */
 /* --------------------- our blog start -----------------------*/
