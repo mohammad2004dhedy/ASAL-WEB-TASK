@@ -19,7 +19,7 @@ window.addEventListener("scroll", () => {
 //-------------------- scroll line end   --------------------------------
 //-------------------- upBtn start --------------------------------
 let UpBtn = document.getElementById("UpBtn");
-window.onscroll = () => {
+onscroll = () => {
   if (window.scrollY > 200) {
     UpBtn.classList.add("active");
   } else {
@@ -27,9 +27,9 @@ window.onscroll = () => {
   }
 };
 UpBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    })
-})
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 //-------------------- upBtn end   --------------------------------
